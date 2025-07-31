@@ -5,30 +5,30 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   Future<void> _signOut(BuildContext context) async {
-    try {
-      final scaffoldMessenger = ScaffoldMessenger.of(context);
-      final navigator = Navigator.of(context);
+    // Capturamos las instancias necesarias ANTES de cualquier operación async
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
 
+    try {
       await FirebaseAuth.instance.signOut();
 
-      // Verificación explícita del estado del Navigator
+      // Verificamos el estado de navigator
       if (navigator.mounted) {
-        navigator.pushReplacementNamed('/login');
+        await navigator.pushReplacementNamed('/login');
       }
     } catch (e) {
-      // Verificación adicional para mostrar errores
-      if (ScaffoldMessenger.of(context).mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
+      // Verificamos el estado de messenger
+      if (messenger.mounted) {
+        messenger.showSnackBar(
           SnackBar(
             content: Text('Error al cerrar sesión: ${e.toString()}'),
             duration: const Duration(seconds: 3),
-            behavior: SnackBarBehavior.floating,
           ),
         );
       }
 
-      // Opcional: Registrar el error en Crashlytics/Sentry
-      debugPrint('Error en _signOut: $e');
+      // Opcional: Registrar el error
+      debugPrint('Error durante logout: $e');
     }
   }
 
