@@ -90,7 +90,7 @@ class _AuthScreenState extends State<AuthScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-
+      if (!mounted) return; // <- Verificación crucial
       if (userCredential.user != null) {
         Navigator.pushReplacement(
           context,
