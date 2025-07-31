@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846453736889",
+    "project_id": "mini-app-acceso",
+    "storage_bucket": "mini-app-acceso.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846453736889:android:6139e94643cf3b03dca268",
+        "android_client_info": {
+          "package_name": "com.example.mini_app_acceso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAA_xWgyEJqxMryyP76REjWU0Atwqtb7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
