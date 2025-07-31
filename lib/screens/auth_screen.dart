@@ -85,7 +85,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Future<void> _handleLogin() async {
-    try {
+    //try {
       final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
@@ -97,10 +97,7 @@ class _AuthScreenState extends State<AuthScreen> {
           MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       }
-    } on FirebaseAuthException catch (e) {
-      // Esta excepción será capturada por el bloque try-catch principal
-      rethrow; // Re-lanzamos la excepción para que la maneje el bloque principal
-    }
+    //}
   }
 
   Future<void> _handleRegistration() async {
